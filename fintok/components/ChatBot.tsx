@@ -10,7 +10,7 @@ import { Menu, ChevronLeft } from "lucide-react";
 
 export default function Chatbot() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
-    api: "/api/chatbot",
+    api: "/api/chat",
   });
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
