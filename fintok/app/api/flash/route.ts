@@ -5,7 +5,7 @@ const conversationHistory: string[] = []; // Store conversation context
 
 export async function POST(req: NextRequest) {
   try {
-    const flashApiKey = process.env.FLASH_API_KEY;
+    const flashApiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
     if (!flashApiKey) {
       return NextResponse.json(
         { error: "Flash API key not found" },

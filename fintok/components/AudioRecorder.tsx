@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { ChatMessage } from "../types";
+import { transcribeAudio } from "../utils/asr_translate"; // Import function
 
 interface AudioRecorderProps {
   setChatHistory: React.Dispatch<React.SetStateAction<ChatMessage[]>>;
@@ -23,13 +24,16 @@ export default function AudioRecorder({ setChatHistory }: AudioRecorderProps) {
         }
       };
 
-      mediaRecorder.onstop = () => {
+      mediaRecorder.onstop = async () => {
         const audioBlob = new Blob(audioChunks.current, { type: "audio/wav" });
         const userAudioUrl = URL.createObjectURL(audioBlob);
 
+        // Send the audioBlob for transcription
+        const transcribedText = await transcribeAudio(audioBlob);
+
         setChatHistory((prevChat) => [
           ...prevChat,
-          { role: "user", userAudioUrl },
+          { role: "user", userAudioUrl, content: transcribedText }, // Store transcribed text
         ]);
 
         audioChunks.current = []; // Clear recorded chunks

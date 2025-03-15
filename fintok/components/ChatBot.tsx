@@ -213,7 +213,6 @@ export default function Chatbot() {
                   </div>
                 </div>
               ))}
-
               {/* Show recorded audio messages */}
               {chatHistory.map((chat, index) => (
                 <div key={index} className="mt-2 flex">
@@ -223,7 +222,9 @@ export default function Chatbot() {
                   </audio>
                 </div>
               ))}
+
             </div>
+
 
             {/* Input Box - Fixed at Bottom */}
             <form onSubmit={handleSubmit} className="mt-4 flex items-center space-x-2">
