@@ -1,4 +1,4 @@
-import { mistral } from "@ai-sdk/mistral"
+// import { mistral } from "@ai-sdk/mistral"
 import { streamText } from "ai";
 import { NextResponse } from "next/server";
 import { google } from "@ai-sdk/google"
