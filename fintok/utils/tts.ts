@@ -33,4 +33,5 @@ export async function tts(finalText: string, finalLanguage: string) {
   console.log(
     `TTS Audio blob received: ${ttsData.size} bytes, type: ${ttsData.type}`
   );
+  return URL.createObjectURL(ttsData);
 }
