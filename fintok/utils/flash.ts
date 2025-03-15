@@ -1,4 +1,4 @@
-
+import {translate} from "./translate"
 
 interface FlashData {
   transcript: string;
@@ -22,6 +22,7 @@ export async function flash(data: FlashData, language_code: string) {
   }
 
   const aiData = await aiResponse.json();
+  await translate(aiData.response, language_code);
   console.log("AI Response:", aiData);
 
   if (!aiData.response) {
