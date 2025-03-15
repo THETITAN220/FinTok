@@ -1,14 +1,14 @@
 import { mistral } from "@ai-sdk/mistral"
-// import { generateText } from "ai";
 import { streamText } from "ai";
 import { NextResponse } from "next/server";
+import { google } from "@ai-sdk/google"
 
 type Messages = {
   "role": string;
   "content": string;
 }
 
-export const runtime = "edge"; // Use Edge runtime for better performance
+export const runtime = "edge";
 
 export async function POST(req: Request) {
   try {
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     const prompt = messages.map((msg: Messages) => `${msg.role}: ${msg.content}`).join("\n")
 
     const result = streamText({
-      model: mistral("mistral-small-latest"),
+      model: google("models/gemini-2.0-flash"),
       prompt,
     })
 
