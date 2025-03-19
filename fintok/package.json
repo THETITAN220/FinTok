@@ -11,6 +11,7 @@
   "dependencies": {
     "@ai-sdk/google": "^1.1.25",
     "@ai-sdk/mistral": "^1.1.17",
+    "@google/generative-ai": "^0.24.0",
     "@radix-ui/react-slot": "^1.1.2",
     "ai": "^4.1.61",
     "class-variance-authority": "^0.7.1",
